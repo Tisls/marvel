@@ -11,10 +11,6 @@ import Spinner from "../spinner/spinner";
 import ErrorMessage from "../errorMessage/errorMessage";
 
 class RandomChar extends Component{
-    constructor(props) {
-        super(props);
-        this.updateChar();
-    }
     state = {
         char:{},
         loading: true,
@@ -22,6 +18,14 @@ class RandomChar extends Component{
     }
     marvelService = new MarvelService();// add new service so we can use our database
 
+    componentDidMount() {
+        this.updateChar();
+        this.timerId = setInterval(this.updateChar, 3000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerId);
+    }
 
     onCharLoaded = (char) => {
         this.setState({
