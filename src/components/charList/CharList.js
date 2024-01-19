@@ -1,8 +1,11 @@
 import { Component } from 'react';
+import PropTypes from "prop-types";
 import Spinner from '../spinner/spinner';
 import ErrorMessage from '../errorMessage/errorMessage';
 import MarvelService from '../../services/MarvelService';
 import './charList.scss';
+import charInfo from "../charInfo/CharInfo";
+import CharInfo from "../charInfo/CharInfo";
 
 class CharList extends Component {
     state = {
@@ -129,5 +132,6 @@ class CharList extends Component {
         );
     }
 }
+
 
 export default CharList;
